@@ -1,0 +1,16 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+#video {
+    width: 320px;
+    height: 240px;
+    margin-top: 20px;
+    display: none;
+}
+#photo {
+    width: 320px;
+    height: 240px;
+    margin-top: 20px;
+    display: none;
+}
