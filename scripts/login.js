@@ -5,6 +5,7 @@ const signInForm = document.getElementById('signInForm');
         const canvas = document.getElementById('canvas');
         const photo = document.getElementById('photo');
         const usernameInput = document.getElementById('username');
+        const acceptBtn = document.getElementById('acceptBtn');
 
         signInForm.addEventListener('submit', (event) => {
             event.preventDefault();
@@ -44,4 +45,36 @@ const signInForm = document.getElementById('signInForm');
             canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
             photo.src = canvas.toDataURL('image/png');
             photo.style.display = 'block';
+            acceptBtn.style.display = 'block';
         });
+
+        acceptBtn.addEventListener('click', () => {
+            const photo64 = photo.src.split(',')[1];
+            console.log(photo64);
+            const username = usernameInput.value;
+            console.log(username);
+            submitUser(username, photo64);
+        });
+
+        function submitUser(username, base64Photo) {
+            const apiUrl = '';
+            const data = {
+                username: username,
+                photo: base64Photo,
+            };
+            fetch(apiUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            })
+           .then(response => response.json())
+           .then(data => {
+                console.log('Success:', data);
+            })
+           .catch((error) => {
+                console.error('Error:', error);
+            });
+        }
+
