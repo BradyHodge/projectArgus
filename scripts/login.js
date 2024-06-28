@@ -64,16 +64,17 @@ const signInForm = document.getElementById('signInForm');
             };
             fetch(apiUrl, {
                 method: 'POST',
+                mode: 'cors',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(data),
             })
-           .then(response => response.json())
-           .then(data => {
+            .then(response => response.json())
+            .then(data => {
                 console.log('Success:', data);
             })
-           .catch((error) => {
+            .catch((error) => {
                 console.error('Error:', error);
             });
         }
