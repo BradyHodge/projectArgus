@@ -17,6 +17,10 @@ body {
     display: none;
 }
 
+#acceptBtn {
+    display: none;
+}
+
 .camera {
     display: flex;
     align-items: center;
