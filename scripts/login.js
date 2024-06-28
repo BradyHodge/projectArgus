@@ -56,11 +56,11 @@ const signInForm = document.getElementById('signInForm');
             submitUser(username, photo64);
         });
 
-        function submitUser(username, base64Photo) {
-            const apiUrl = '';
+        function submitUser(userEmail, base64Photo) {
+            const apiUrl = ''; // Replace with your API URL
             const data = {
-                username: username,
-                photo: base64Photo,
+                userEmail: userEmail,
+                image: base64Photo,
             };
             fetch(apiUrl, {
                 method: 'POST',
